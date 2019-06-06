@@ -85,7 +85,7 @@ int main() {
 	//cout << str.find_first_of("2") << endl;
 	//cout << str.find_first_of("9") << endl;
 	//cout << str.substr(str.size() - 2, str.size()) << endl;
-	//cout << str.substr(2, 7) << endl;
+	cout << str.substr(2, 7) << endl;
 
 	return getNumber(10, 36);
 }
