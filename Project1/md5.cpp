@@ -284,6 +284,7 @@ int _httoi(const char *value)
   free(mstr);
   //pthread_mutex_unlock(&mutexMemory);
   return result;
+
 }
 
 
