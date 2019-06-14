@@ -6,6 +6,8 @@
 #include <time.h>
 #include "md5.h"
 #include<Windows.h>
+#include "AdapterClass.h"
+#include "AdapterObject.h"
 using namespace std;
 
 int g = 10;
@@ -184,9 +186,17 @@ int main() {
 	//printf("%s\n", str);
 
 	//删除字符
-	char str[] = "vencent ppqq";
-	delchar(str, 't');
-	printf("%s\n", str);
+	//char str[] = "vencent ppqq";
+	//delchar(str, 't');
+	//printf("%s\n", str);
+
+	//类模式适配器
+	Target* targetclass = new AdapterClass();
+	targetclass->request();
+
+	//对象模式适配器
+	Target* targetobject = new AdapterObject();
+	targetobject->request();
 	
 
 	return getNumber(10, 36);

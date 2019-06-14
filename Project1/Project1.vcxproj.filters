@@ -26,5 +26,17 @@
     <ClInclude Include="md5.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Target.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Adaptee.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AdapterClass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AdapterObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
