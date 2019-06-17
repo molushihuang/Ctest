@@ -9,7 +9,7 @@ class Adaptee
 {
 public:
 	Adaptee() {}
-	~Adaptee() {}
+	~Adaptee() {}//析构函数
 	void specificRequest()//需要适配接口
 	{
 		cout << "Adaptee::specificRequest()" << endl;
