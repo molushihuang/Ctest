@@ -57,6 +57,41 @@ void delchar(char* str, char del) {
 	*p = '\0';
 }
 
+class A {
+private:
+	int i, j;
+
+public :
+	A() :i(1),j(1){}
+	~A() {};
+
+	 void printA() {
+		 cout << "call printA() in class A" << endl;
+	}
+
+	 void printSum() {
+		 cout << i + j << endl;
+	 }
+};
+
+class B :public A {
+
+private :
+	int a, b;
+
+public:
+	B() :a(2), b(3) {}
+	~B() {};
+
+	void printB() {
+		cout << "call printB() in class B" << endl;
+	}
+
+	void printSum() {
+		cout << a + b << endl;
+	}
+};
+
 int main() {
 
 	//string str = "hello world\n";
@@ -222,12 +257,44 @@ int main() {
 	//}
 
 	//文件写入
-	char path[] = "C:\\Users\\Administrator\\Desktop\\file.txt";
-	FILE* fp = fopen(path, "w");
-	const char* text = "fdggdgdgd";
-	printf("%d", fputs(text, fp));
+	//char path[] = "C:\\Users\\Administrator\\Desktop\\file.txt";
+	//FILE* fp = fopen(path, "w");
+	//const char* text = "fdggdgdgd";
+	//printf("%d", fputs(text, fp));
 
-	fclose(fp);
+	//fclose(fp);
+
+	//类型转换测试代码
+	//B *ptrB = new B();
+	//ptrB->printA();
+	//ptrB->printB();
+	//ptrB->printSum();
+
+	//A* ptrA = new A;
+	//ptrB = static_cast<B*>( ptrA);
+	//ptrB->printSum();
+	//ptrB->printA();
+	//ptrB->printB();
+
+	//B b;
+	//B& rb = b;
+	//rb.printA();
+	//rb.printB();
+	//rb.printSum();
+	//A& ra = static_cast<A&> (b);
+	//ra.printA();
+	//ra.printSum();
+
+	A a;
+	A& ra = a;
+	ra.printA();
+	ra.printSum();
+	B& rb = static_cast<B&>(a);
+	rb.printA();
+	rb.printB();
+	rb.printSum();
+	
+
 
 	return getNumber(10, 36);
 }
