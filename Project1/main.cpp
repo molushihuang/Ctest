@@ -8,6 +8,7 @@
 #include<Windows.h>
 #include "AdapterClass.h"
 #include "AdapterObject.h"
+#include <vector>
 using namespace std;
 
 int g = 10;
@@ -285,17 +286,48 @@ int main() {
 	//ra.printA();
 	//ra.printSum();
 
-	A a;
-	A& ra = a;
-	ra.printA();
-	ra.printSum();
-	B& rb = static_cast<B&>(a);
-	rb.printA();
-	rb.printB();
-	rb.printSum();
-	
+	//A a;
+	//A& ra = a;
+	//ra.printA();
+	//ra.printSum();
+	//B& rb = static_cast<B&>(a);
+	//rb.printA();
+	//rb.printB();
+	//rb.printSum();
 
+	//vector测试
+	vector<char>vt;
+	vt.push_back('a');//放置数据
+	vt.push_back('b');
+	vt.push_back('c');
+	vt.push_back('d');
 
+	vt.insert(vt.begin()+1,'g');//插入数据
+	vt.front() = 'A';//修改第一个数据
+	vt.back() = 'D';//修改最后一个数据
+
+	//vt.pop_back();//删除基础最后一个数据
+	//vt.erase(vt.begin()+1);//删除指定位置的数据
+	//vt.erase(vt.begin(),vt.begin()+1);//删除指定区间的值
+
+	for (int i = 0; i < vt.size(); ++i) {
+		cout << vt[i] << endl;
+	}
+	cout << "迭代器遍历,正向" << endl;
+	for (vector<char>::iterator it = vt.begin(); it < vt.end();it++) {
+		cout << *it << endl;
+	}
+
+	cout << "迭代器遍历,反向" << endl;
+	for (vector<char>::reverse_iterator it = vt.rbegin(); it < vt.rend(); it++) {
+		cout << *it << endl;
+	}
+
+	vector<char>vt2(vt.begin(),vt.begin()+2);//截取vt的数据复制到vt2里面
+	cout << "vt2的值" <<endl;
+	for (int i = 0; i< vt2.size(); i++) {
+		cout << vt2[i] << endl;
+	}
 	return getNumber(10, 36);
 }
 
