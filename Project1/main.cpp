@@ -9,6 +9,7 @@
 #include "AdapterClass.h"
 #include "AdapterObject.h"
 #include <vector>
+#include <list>
 using namespace std;
 
 int g = 10;
@@ -296,38 +297,87 @@ int main() {
 	//rb.printSum();
 
 	//vector测试
-	vector<char>vt;
-	vt.push_back('a');//放置数据
-	vt.push_back('b');
-	vt.push_back('c');
-	vt.push_back('d');
+	//vector<char>vt;
+	//vt.push_back('a');//放置数据
+	//vt.push_back('b');
+	//vt.push_back('c');
+	//vt.push_back('d');
 
-	vt.insert(vt.begin()+1,'g');//插入数据
-	vt.front() = 'A';//修改第一个数据
-	vt.back() = 'D';//修改最后一个数据
+	//vt.insert(vt.begin()+1,'g');//插入数据
+	//vt.front() = 'A';//修改第一个数据
+	//vt.back() = 'D';//修改最后一个数据
 
-	//vt.pop_back();//删除基础最后一个数据
-	//vt.erase(vt.begin()+1);//删除指定位置的数据
-	//vt.erase(vt.begin(),vt.begin()+1);//删除指定区间的值
+	////vt.pop_back();//删除基础最后一个数据
+	////vt.erase(vt.begin()+1);//删除指定位置的数据
+	////vt.erase(vt.begin(),vt.begin()+1);//删除指定区间的值
 
-	for (int i = 0; i < vt.size(); ++i) {
-		cout << vt[i] << endl;
-	}
-	cout << "迭代器遍历,正向" << endl;
-	for (vector<char>::iterator it = vt.begin(); it < vt.end();it++) {
-		cout << *it << endl;
-	}
+	//for (int i = 0; i < vt.size(); ++i) {
+	//	cout << vt[i] << endl;
+	//}
+	//cout << "迭代器遍历,正向" << endl;
+	//for (vector<char>::iterator it = vt.begin(); it < vt.end();it++) {
+	//	cout << *it << endl;
+	//}
 
-	cout << "迭代器遍历,反向" << endl;
-	for (vector<char>::reverse_iterator it = vt.rbegin(); it < vt.rend(); it++) {
-		cout << *it << endl;
-	}
+	//cout << "迭代器遍历,反向" << endl;
+	//for (vector<char>::reverse_iterator it = vt.rbegin(); it < vt.rend(); it++) {
+	//	cout << *it << endl;
+	//}
 
-	vector<char>vt2(vt.begin(),vt.begin()+2);//截取vt的数据复制到vt2里面
-	cout << "vt2的值" <<endl;
-	for (int i = 0; i< vt2.size(); i++) {
-		cout << vt2[i] << endl;
-	}
+	//vector<char>vt2(vt.begin(),vt.begin()+2);//截取vt的数据复制到vt2里面
+	//cout << "vt2的值" <<endl;
+	//for (int i = 0; i< vt2.size(); i++) {
+	//	cout << vt2[i] << endl;
+	//}
+
+	//list测试
+	//list<int>lt;
+	//lt.push_front(10);
+	//lt.push_front(20);
+	//lt.push_front(30);
+	//lt.push_back(40);
+	//lt.push_back(50);
+	//lt.push_back(60);
+
+	//lt.insert(lt.begin(), 80);//插入
+
+	////这里只能用!=不能用<
+	//for (list<int>::iterator it=lt.begin(); it != lt.end(); it++) {
+	//	cout << *it << endl;
+	//}
+
+	//cout << "迭代器位置" << endl;
+	//list<int>::iterator it = lt.begin();
+	////连续相加允许(++),支持'++'、'--'运算符,不支持'+'、'-'运算度,it = it - 1;  错误调用
+	//it++;
+	//it--;
+	//cout << *it << endl;
+
+	//cout << "删除方式1：根据迭代器位置删除" << endl;
+	//list<int>::iterator it = lt.begin();
+	//it++;
+	//lt.erase(it);
+	//for (list<int>::iterator it = lt.begin(); it != lt.end(); it++) {
+	//	cout << *it << endl;
+	//}
+
+	//cout << "删除方式2：直接删除内容" << endl;
+	//lt.remove(50);
+	//for (list<int>::iterator it = lt.begin(); it != lt.end(); it++) {
+	//	cout << *it << endl;
+	//}
+
+	//cout << "删除方式3：区间删除" << endl;
+	//list<int>::iterator it_begin = lt.begin();
+	//list<int>::iterator it_end = lt.begin();
+	//it_end++;
+	//it_end++;
+	//lt.erase(it_begin, it_end);
+	//for (list<int>::iterator it = lt.begin(); it != lt.end(); it++) {
+	//	cout << *it << endl;
+	//}
+
+	
 	return getNumber(10, 36);
 }
 
