@@ -10,6 +10,7 @@
 #include "AdapterObject.h"
 #include <vector>
 #include <list>
+#include <set>
 using namespace std;
 
 int g = 10;
@@ -91,6 +92,33 @@ public:
 
 	void printSum() {
 		cout << a + b << endl;
+	}
+};
+
+class Student {
+private:
+	string name;
+	int score;
+
+public:
+	Student(string name,int score) {
+		this->name = name;
+		this->score = score;
+	}
+	int getScore() {
+		return this->score;
+	}
+
+	void printStudent() {
+		cout << "name: " << this->name << " score: " << this->score << endl;
+	}
+};
+
+struct soft {
+	bool operator()(const Student &left,const Student &right) {
+		Student sdLeft = const_cast<Student&>(left);
+		Student sdRight = const_cast<Student&>(right);
+		return sdLeft.getScore() < sdRight.getScore();
 	}
 };
 
@@ -376,6 +404,20 @@ int main() {
 	//for (list<int>::iterator it = lt.begin(); it != lt.end(); it++) {
 	//	cout << *it << endl;
 	//}
+
+	//set测试
+	set<Student, soft>st;
+	st.insert(Student("sadad",50));
+	st.insert(Student("大佛寺附近",70));
+	st.insert(Student("撒大帝",60));
+	st.insert(Student("事发当时对方",80));
+	st.insert(Student("斯蒂芬森分",20));
+
+	for (set<Student>::iterator it = st.begin(); it != st.end(); it++) {
+		Student sd = const_cast<Student&>(*it);
+		sd.printStudent();
+	}
+
 
 	
 	return getNumber(10, 36);
