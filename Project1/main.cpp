@@ -11,6 +11,7 @@
 #include <vector>
 #include <list>
 #include <set>
+#include <algorithm>
 using namespace std;
 
 int g = 10;
@@ -406,19 +407,27 @@ int main() {
 	//}
 
 	//set测试
-	set<Student, soft>st;
-	st.insert(Student("sadad",50));
-	st.insert(Student("大佛寺附近",70));
-	st.insert(Student("撒大帝",60));
-	st.insert(Student("事发当时对方",80));
-	st.insert(Student("斯蒂芬森分",20));
+	//set<Student, soft>st;
+	//st.insert(Student("sadad",50));
+	//st.insert(Student("大佛寺附近",70));
+	//st.insert(Student("撒大帝",60));
+	//st.insert(Student("事发当时对方",80));
+	//st.insert(Student("斯蒂芬森分",20));
 
-	for (set<Student>::iterator it = st.begin(); it != st.end(); it++) {
-		Student sd = const_cast<Student&>(*it);
-		sd.printStudent();
-	}
+	//for (set<Student>::iterator it = st.begin(); it != st.end(); it++) {
+	//	Student sd = const_cast<Student&>(*it);
+	//	sd.printStudent();
+	//}
 
 
+	int borad[] = {1,2,3,4,5};
+	sort(borad, borad + 5);
+	int t = lower_bound(borad, borad + 5,3)-borad;//大于等于3的位置，减去开始的位置，就是下标
+	int t1 = upper_bound(borad, borad + 5,3)-borad;//大于3的位置
+	auto* t2 = lower_bound(borad, borad + 5, 3);
+	cout << t<< endl;
+	cout << t1<< endl;
+	cout << *t2<< endl;
 	
 	return getNumber(10, 36);
 }
