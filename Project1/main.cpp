@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <map>
 #include <functional> 
+#include <deque>
 using namespace std;
 
 int g = 10;
@@ -421,7 +422,6 @@ int main() {
 	//	sd.printStudent();
 	//}
 
-
 	//int borad[] = {1,2,3,4,5};
 	//sort(borad, borad + 5);
 	//int t = lower_bound(borad, borad + 5,3)-borad;//大于等于3的位置，减去开始的位置，就是下标
@@ -432,51 +432,54 @@ int main() {
 	//cout << *t2<< endl;
 
 	//map测试
-	map<int, string> mp;
-	//插入方式1
-	mp.insert(pair<int,string>(10,"sdd"));
-	mp.insert(pair<int,string>(1,"gfh"));
-	mp.insert(pair<int,string>(100,"wrew"));
-	mp.insert(pair<int,string>(100,"wrew"));//map里没有 重复的key，所以这个无效
-	mp.insert(pair<int,string>(50,"855"));
-	//插入方式2
-	pair<map<int, string>::iterator, bool> result = mp.insert(map<int, string>::value_type(62, "Month"));
-	if (result.second) {
-		cout << "插入成功 key: "<<result.first->first << " value: " << result.first->second << endl;
-	}
-	else {
-		cout << "插入失败 key: " << result.first->first << " value: " << result.first->second << endl;
-	}
-	//插入方式3
-	mp.insert(make_pair(58, "cv"));
-	//插入方式4
-	mp[58] = "cfv";//有这个key就直接修改数据
-	mp[40] = "891";//没有这个key就直接添加
+	//map<int, string> mp;
+	////插入方式1
+	//mp.insert(pair<int,string>(10,"sdd"));
+	//mp.insert(pair<int,string>(1,"gfh"));
+	//mp.insert(pair<int,string>(100,"wrew"));
+	//mp.insert(pair<int,string>(100,"wrew"));//map里没有 重复的key，所以这个无效
+	//mp.insert(pair<int,string>(50,"855"));
+	////插入方式2
+	//pair<map<int, string>::iterator, bool> result = mp.insert(map<int, string>::value_type(62, "Month"));
+	//if (result.second) {
+	//	cout << "插入成功 key: "<<result.first->first << " value: " << result.first->second << endl;
+	//}
+	//else {
+	//	cout << "插入失败 key: " << result.first->first << " value: " << result.first->second << endl;
+	//}
+	////插入方式3
+	//mp.insert(make_pair(58, "cv"));
+	////插入方式4
+	//mp[58] = "cfv";//有这个key就直接修改数据
+	//mp[40] = "891";//没有这个key就直接添加
 
-	for (map<int,string>::iterator it=mp.begin(); it != mp.end(); it++) {
-		//这个first,second是个值，不是函数
-		cout << "key: "<<it->first<<" value: " <<it->second<< endl;
-	}
+	//for (map<int,string>::iterator it=mp.begin(); it != mp.end(); it++) {
+	//	//这个first,second是个值，不是函数
+	//	cout << "key: "<<it->first<<" value: " <<it->second<< endl;
+	//}
 
-	cout << "删除" << endl;
-	map<int, string>::iterator it = mp.begin();
-	map<int, string>::iterator it1 = mp.begin();
-	it1++;
-	it1++;
-	mp.erase(it,it1);
+	//cout << "删除" << endl;
+	//mp.erase(10);//直接通过key删除
+	//map<int, string>::iterator it = mp.begin();
+	//map<int, string>::iterator it1 = mp.begin();
+	//it1++;
+	//it1++;
+	//mp.erase(it,it1);//迭代器范围删除
 
-	for (map<int, string>::iterator it = mp.begin(); it != mp.end(); it++) {
-		//这个first,second是个值，不是函数
-		cout << "key: " << it->first << " value: " << it->second << endl;
-	}
+	//for (map<int, string>::iterator it = mp.begin(); it != mp.end(); it++) {
+	//	//这个first,second是个值，不是函数
+	//	cout << "key: " << it->first << " value: " << it->second << endl;
+	//}
 
-	map<int, string>::iterator serachit = mp.find(58);
-	cout << "查找数据 key: " <<serachit->first<<" value: "<< serachit->second << endl;
+	//map<int, string>::iterator serachit = mp.find(58);
+	//cout << "查找数据 key: " <<serachit->first<<" value: "<< serachit->second << endl;
+	//
+	//// 该函数返回的是一对迭代器，第一个迭代器指向所查找元素的第一次出现的位置，
+	//// 第二个迭代器指向所查找元素最后一次出现位置的后一个位置
+	//pair<map<int, string>::iterator, map<int, string>::iterator> p = mp.equal_range(100);
+	//cout << "查找数据 第一个: " << p.first->first << " 第二个: " << p.first->first << endl;
+
 	
-	// 该函数返回的是一对迭代器，第一个迭代器指向所查找元素的第一次出现的位置，
-	// 第二个迭代器指向所查找元素最后一次出现位置的后一个位置
-	pair<map<int, string>::iterator, map<int, string>::iterator> p = mp.equal_range(100);
-	cout << "查找数据 第一个: " << p.first->first << " 第二个: " << p.first->first << endl;
 	
 	return getNumber(10, 36);
 }
